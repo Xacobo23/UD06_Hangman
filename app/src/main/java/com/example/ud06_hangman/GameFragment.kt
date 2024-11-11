@@ -23,8 +23,14 @@ class GameFragment : Fragment() {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.palabraSecreta.text = model.palabraHidden
+
         binding.btnNext.setOnClickListener{
-            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+//            view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+            model.guess(binding.charAnhadido.text.get(0))
+
+            binding.palabraSecreta.text = model.palabraHidden
+
 
         }
 
